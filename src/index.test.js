@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals';
-import { capitalize } from './index.js';
+import { capitalize, reverseString } from './index.js';
 
 test('capitalize first letter for normal English words', () => {
   const words = ['hello', 'test', 'divide'];
@@ -22,4 +22,31 @@ test('capitalize sentence', () => {
   const answer = 'How are you today?';
 
   expect(capitalize(sentence)).toBe(answer);
+});
+
+test('reverse string', () => {
+  const strings = [
+    'hi',
+    'bye',
+    'whatever',
+    '',
+    'i',
+    'Hello',
+    'What is going on?',
+    '$#!@',
+  ];
+  const answers = [
+    'ih',
+    'eyb',
+    'revetahw',
+    '',
+    'i',
+    'olleH',
+    '?no gniog si tahW',
+    '@!#$',
+  ];
+
+  strings.forEach((str, index) => {
+    expect(reverseString(str)).toBe(answers[index]);
+  });
 });
